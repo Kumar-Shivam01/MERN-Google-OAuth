@@ -1,9 +1,21 @@
-
+import {useGoogleLogin} from '@react-oauth/google'
 function GoogleLogin(){
-    return(
+    const responseGoogle = async (authResult)=>{
+        try{
+            console.log(authResult)
+        }catch(err){
+            console.log(err)
+        }
+    }
+    const handleGoogleLogin  = useGoogleLogin({
+        onSuccess: responseGoogle,
+        onError: responseGoogle,
+        flow: 'auth-code'
+    })
+    return( 
         <>
         <h1>Google Login</h1>
-        <button>Login with Google</button>
+        <button onClick={handleGoogleLogin}>Login with Google</button>
         </>
     )
 }
