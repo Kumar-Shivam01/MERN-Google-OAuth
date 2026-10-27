@@ -4,6 +4,6 @@ const {googleLogin} = require('../controllers/googleLogin')
 router.route('/test').get((req,res)=>{
     res.send('test passed!')
 })
-router.route('/google').post(googleLogin)
+router.route('/google').get(googleLogin)
 
 module.exports = router;
