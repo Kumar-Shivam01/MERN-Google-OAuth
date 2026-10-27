@@ -4,6 +4,15 @@ require('dotenv').config()
 const port = process.env.PORT || 8080;
 const mongoose = require('mongoose')
 const authRouter = require('./routes/authRouter')
+const cors = require('cors')
+
+app.use(cors());
+cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET','POST'],
+    credentials: true
+})
+app.use(express.json())
 
 app.listen(port, () => {
     console.log(`server running on: http://localhost:${port}`);
